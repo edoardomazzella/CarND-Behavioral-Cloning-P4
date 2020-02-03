@@ -81,23 +81,21 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+First of all i balanced the data set, obtaining the same number of samples for each steering value.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+In order to gauge how well the model was working, I shuffled the balanced samples and split a subset of them into a training and validation set. I had to use a subset in order to optimize the time but better results could be obtained by using the entire balanced data set.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+In order to optimize the efficiency of the algorithm I created a generator for the training and validation set. It is located in generator.py file and it uses all the three images for each sample and furthermore flip them in order to augment the data set.
 
-To combat the overfitting, I modified the model so that ...
+I compiled the nvidia model (located in nvidia.py) with an Adam optimized and trained it by using model.fit_generator function.
 
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+The final step was to run the simulator to see how well the car was driving around track one. The firt times there were two curves that my car was not able to front, balancing the data set has been the key for achieving better results.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+As already reported above I choosed the nvidia model for this project.
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
@@ -105,24 +103,16 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I used the data set already present in the workspace without using the simulator for collecting more data. Here is an example of the center, left and right camera images in a line of the provided data set:
 
 ![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
 ![alt text][image3]
 ![alt text][image4]
+
+To augment the data sat, I also flipped images and angles thinking that this would improve the performances of my model and teach it to front left and right curves in the same way.
+
 ![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
 ![alt text][image6]
-![alt text][image7]
-
-Etc ....
 
 After the collection process, I had X number of data points. I then preprocessed this data by ...
 
