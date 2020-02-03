@@ -87,7 +87,10 @@ In order to gauge how well the model was working, I shuffled the balanced sample
 
 In order to optimize the efficiency of the algorithm I created a generator for the training and validation set. It is located in generator.py file and it uses all the three images for each sample and furthermore flip them in order to augment the data set.
 
-I compiled the nvidia model (located in nvidia.py) with an Adam optimized and trained it by using ```shmodel.fit_generator``` function.
+I compiled the nvidia model (located in nvidia.py) with an Adam optimized and trained it by using:
+```sh
+model.fit_generator
+```
 
 The final step was to run the simulator to see how well the car was driving around track one. The firt times there were two curves that my car was not able to front, balancing the data set has been the key for achieving better results.
 
