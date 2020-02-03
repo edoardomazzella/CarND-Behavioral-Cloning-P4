@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/center.png "Center Camera Image"
 [image3]: ./examples/left.png "Left Camera Image"
 [image4]: ./examples/right.png "Right Camera Image"
-[image5]: ./examples/placeholder_small.png "Flipped Image"
+[image5]: ./examples/flipped.png "Flipped Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -111,10 +111,12 @@ To capture good driving behavior, I used the data set already present in the wor
 ![alt text][image3]
 ![alt text][image4]
 
-To augment the data sat, I also flipped images and angles thinking that this would improve the performances of my model and teach it to front left and right curves in the same way.
+To augment the data set, I also flipped images and angles thinking that this would improve the performances of my model and would teach it to front left and right curves in the same way. Here is an example of the flipped center camera image.
 
 ![alt text][image5]
 
-After the balancing process, I had about 540000 data points. I decided to shuffle them and use just a subset to lower the training time, so i passed just 50000 data points to the generators, splitted in 40000 for training and 10000 for validation.
+After the data balancing process, I had about 540000 data points. I decided to shuffle them and use just a subset to lower the training time, so i passed just 50000 data points to the generators, splitted in 40000 for training and 10000 for validation.
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by the graph in lossperepoch.png. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+
+To further improve the results, more data could be collected with the simulator avoiding to automatically balance the data set which makes it too big for a fast training.
