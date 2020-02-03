@@ -4,8 +4,10 @@ import sklearn
 import matplotlib.pyplot as plt
 from nvidia import nvidiaModel
 from generator import generator
+from balance_samples import balance_samples
 from math import ceil
 from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
 from keras.models import Model
 
 # Importing lines of driving_log.csv file
@@ -16,9 +18,17 @@ with open('./data/driving_log.csv') as csvfile:
     for cont, line in enumerate(reader):
         if cont != 0:
             samples.append(line)
+print("Number of samples: ", len(samples))
+            
+# Balancing samples
+samples = balance_samples(samples)
+print("Number of samples after balancing: ", len(samples))
+
+# Shuffle the samples
+shuffle(samples)
 
 # Splitting training and validation samples
-train_samples, validation_samples = train_test_split(samples, test_size = 0.2)
+train_samples, validation_samples = train_test_split(samples[0:50000], test_size = 0.2)
 
 # Generator parameters
 batch_size = 8
@@ -38,7 +48,7 @@ model.compile(optimizer = 'adam', loss = 'mse')
 model.summary()
 
 # Number of epochs
-epochs = 2
+epochs = 5
 
 # Training the model with the generators
 history_object = model.fit_generator(train_generator, 
