@@ -117,9 +117,6 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 ![alt text][image5]
 ![alt text][image6]
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+After the balancing process, I had about 540000 data points. I decided to shuffle them and use just a subset to lower the training time, so i passed just 50000 data points to the generators, splitted in 40000 for training and 10000 for validation.
 
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by the graph in lossperepoch.png. I used an adam optimizer so that manually training the learning rate wasn't necessary.
