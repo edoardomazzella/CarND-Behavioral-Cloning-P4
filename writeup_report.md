@@ -19,12 +19,10 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/nvidia.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image2]: ./examples/placeholder.png "Center Camera Image"
+[image3]: ./examples/placeholder_small.png "Left Camera Image"
+[image4]: ./examples/placeholder_small.png "Right Camera Image"
+[image5]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -39,8 +37,9 @@ My project includes the following files:
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md or writeup_report.pdf summarizing the results
+* run1.mp4 which is the recorded video of simulator in autonomous mode
 
-Additionally model.py imports the following file:
+Additionally model.py imports the following python files:
 * nvidia.py containing an implementation of the nvidia NN model
 * generator.py containing the generator function for training the network
 * balance_samples.py containg a function for balancing samples
@@ -115,7 +114,6 @@ To capture good driving behavior, I used the data set already present in the wor
 To augment the data sat, I also flipped images and angles thinking that this would improve the performances of my model and teach it to front left and right curves in the same way.
 
 ![alt text][image5]
-![alt text][image6]
 
 After the balancing process, I had about 540000 data points. I decided to shuffle them and use just a subset to lower the training time, so i passed just 50000 data points to the generators, splitted in 40000 for training and 10000 for validation.
 
