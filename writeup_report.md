@@ -19,9 +19,9 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/nvidia.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Center Camera Image"
-[image3]: ./examples/placeholder_small.png "Left Camera Image"
-[image4]: ./examples/placeholder_small.png "Right Camera Image"
+[image2]: ./examples/center.png "Center Camera Image"
+[image3]: ./examples/left.png "Left Camera Image"
+[image4]: ./examples/right.png "Right Camera Image"
 [image5]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
