@@ -93,7 +93,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-As already reported above I choosed the nvidia model for this project.
+As already reported above I chose the nvidia model for this project.
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
